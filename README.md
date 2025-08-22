@@ -17,7 +17,9 @@ Tập lệnh nhanh (build)
 
 2. Chạy bằng script helper (nếu bạn cài Qt vào /home/<user>/Qt/...):
 
-   ./run_vibration.sh
+- Scripts hiện nằm trong thư mục `scripts/`.
+
+   ./scripts/run_vibration.sh
 
    Script này thiết lập LD_LIBRARY_PATH, QT_QML_IMPORT_PATH, QT_PLUGIN_PATH và QT_QPA_PLATFORM=xcb trước khi chạy binary.
 
@@ -29,6 +31,23 @@ Nếu bạn không có script, chạy thủ công (thay đường dẫn Qt cho p
    export QT_PLUGIN_PATH="$QT_DIR/lib/qt6/plugins:$QT_PLUGIN_PATH"
    export QT_QPA_PLATFORM=xcb
    ./build/VibrationAnalyzerApp
+
+# Cross-compile & helper scripts
+- Cross-build helper: `scripts/build_for_pi.sh` (requires RPI_SYSROOT set)
+- Install & build on Pi helper: `scripts/install_on_pi.sh` (run on Raspberry Pi)
+- Run wrapper: `scripts/run_vibration.sh`
+
+# Usage examples
+# On laptop (cross-compile)
+export RPI_SYSROOT=~/raspi-sysroot
+./scripts/build_for_pi.sh
+
+# On Pi (native build)
+cd project-root
+./scripts/install_on_pi.sh
+
+# Run the app via script
+./scripts/run_vibration.sh
 
 Cài đặt Qt (tùy distro)
 - Dùng Qt online installer (https://www.qt.io/download) — cài Qt 6.x và chọn modules: Qt Charts, Qt Quick Controls, Qt Qml/Quick, Qt Widgets.
