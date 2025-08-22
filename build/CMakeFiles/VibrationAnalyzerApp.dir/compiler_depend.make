@@ -2284,7 +2284,8 @@ CMakeFiles/VibrationAnalyzerApp.dir/src/MainWindow.cpp.o: ../src/MainWindow.cpp 
   /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QHBoxLayout \
   /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QGridLayout \
   /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QCheckBox \
-  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QStatusBar
+  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QStatusBar \
+  /usr/include/x86_64-linux-gnu/qt6/QtGui/QFont
 
 CMakeFiles/VibrationAnalyzerApp.dir/src/Simulation.cpp.o: ../src/Simulation.cpp \
   /usr/include/stdc-predef.h \
@@ -2512,8 +2513,10 @@ CMakeFiles/VibrationAnalyzerApp.dir/src/Simulation.cpp.o: ../src/Simulation.cpp 
 
 CMakeFiles/VibrationAnalyzerApp.dir/src/main.cpp.o: ../src/main.cpp \
   /usr/include/stdc-predef.h \
-  /usr/include/x86_64-linux-gnu/qt6/QtGui/QGuiApplication \
-  /usr/include/x86_64-linux-gnu/qt6/QtGui/qguiapplication.h \
+  ../inc/MainWindow.h \
+  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QMainWindow \
+  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qmainwindow.h \
+  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qtwidgetsglobal.h \
   /usr/include/x86_64-linux-gnu/qt6/QtGui/qtguiglobal.h \
   /usr/include/x86_64-linux-gnu/qt6/QtCore/qglobal.h \
   /usr/include/c++/11/type_traits \
@@ -2690,14 +2693,19 @@ CMakeFiles/VibrationAnalyzerApp.dir/src/main.cpp.o: ../src/main.cpp \
   /usr/include/c++/11/tr1/riemann_zeta.tcc \
   /usr/include/x86_64-linux-gnu/qt6/QtCore/qversiontagging.h \
   /usr/include/x86_64-linux-gnu/qt6/QtGui/qtgui-config.h \
-  /usr/include/x86_64-linux-gnu/qt6/QtCore/qcoreapplication.h \
+  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qtwidgets-config.h \
+  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qwidget.h \
+  /usr/include/x86_64-linux-gnu/qt6/QtGui/qwindowdefs.h \
+  /usr/include/x86_64-linux-gnu/qt6/QtCore/qobjectdefs.h \
+  /usr/include/x86_64-linux-gnu/qt6/QtCore/qnamespace.h \
+  /usr/include/x86_64-linux-gnu/qt6/QtCore/qtmetamacros.h \
+  /usr/include/x86_64-linux-gnu/qt6/QtCore/qobjectdefs_impl.h \
+  /usr/include/x86_64-linux-gnu/qt6/QtCore/qobject.h \
   /usr/include/x86_64-linux-gnu/qt6/QtCore/qstring.h \
   /usr/include/x86_64-linux-gnu/qt6/QtCore/qchar.h \
   /usr/include/x86_64-linux-gnu/qt6/QtCore/qstringview.h \
   /usr/include/x86_64-linux-gnu/qt6/QtCore/qbytearray.h \
   /usr/include/x86_64-linux-gnu/qt6/QtCore/qrefcount.h \
-  /usr/include/x86_64-linux-gnu/qt6/QtCore/qnamespace.h \
-  /usr/include/x86_64-linux-gnu/qt6/QtCore/qtmetamacros.h \
   /usr/include/x86_64-linux-gnu/qt6/QtCore/qarraydata.h \
   /usr/include/x86_64-linux-gnu/qt6/QtCore/qpair.h \
   /usr/include/string.h \
@@ -2798,11 +2806,6 @@ CMakeFiles/VibrationAnalyzerApp.dir/src/main.cpp.o: ../src/main.cpp \
   /usr/include/x86_64-linux-gnu/qt6/QtCore/qanystringview.h \
   /usr/include/x86_64-linux-gnu/qt6/QtCore/qutf8stringview.h \
   /usr/include/x86_64-linux-gnu/qt6/QtCore/qstringtokenizer.h \
-  /usr/include/x86_64-linux-gnu/qt6/QtCore/qcoreevent.h \
-  /usr/include/x86_64-linux-gnu/qt6/QtCore/qobjectdefs.h \
-  /usr/include/x86_64-linux-gnu/qt6/QtCore/qobjectdefs_impl.h \
-  /usr/include/x86_64-linux-gnu/qt6/QtCore/qeventloop.h \
-  /usr/include/x86_64-linux-gnu/qt6/QtCore/qobject.h \
   /usr/include/x86_64-linux-gnu/qt6/QtCore/qlist.h \
   /usr/include/x86_64-linux-gnu/qt6/QtCore/qhashfunctions.h \
   /usr/include/c++/11/numeric \
@@ -2837,16 +2840,15 @@ CMakeFiles/VibrationAnalyzerApp.dir/src/main.cpp.o: ../src/main.cpp \
   /usr/include/c++/11/chrono \
   /usr/include/c++/11/ratio \
   /usr/include/c++/11/ctime \
-  /usr/include/x86_64-linux-gnu/qt6/QtCore/qnativeinterface.h \
-  /usr/include/x86_64-linux-gnu/qt6/QtCore/qdebug.h \
-  /usr/include/x86_64-linux-gnu/qt6/QtCore/qhash.h \
-  /usr/include/x86_64-linux-gnu/qt6/QtCore/qmap.h \
-  /usr/include/x86_64-linux-gnu/qt6/QtCore/qshareddata.h \
-  /usr/include/x86_64-linux-gnu/qt6/QtCore/qshareddata_impl.h \
-  /usr/include/x86_64-linux-gnu/qt6/QtCore/qtextstream.h \
-  /usr/include/x86_64-linux-gnu/qt6/QtCore/qstringconverter.h \
-  /usr/include/x86_64-linux-gnu/qt6/QtCore/qset.h \
-  /usr/include/x86_64-linux-gnu/qt6/QtCore/qcontiguouscache.h \
+  /usr/include/x86_64-linux-gnu/qt6/QtCore/qmargins.h \
+  /usr/include/x86_64-linux-gnu/qt6/QtGui/qpaintdevice.h \
+  /usr/include/x86_64-linux-gnu/qt6/QtCore/qrect.h \
+  /usr/include/x86_64-linux-gnu/qt6/QtCore/qsize.h \
+  /usr/include/x86_64-linux-gnu/qt6/QtCore/qpoint.h \
+  /usr/include/x86_64-linux-gnu/qt6/QtGui/qpalette.h \
+  /usr/include/x86_64-linux-gnu/qt6/QtGui/qcolor.h \
+  /usr/include/x86_64-linux-gnu/qt6/QtGui/qrgb.h \
+  /usr/include/x86_64-linux-gnu/qt6/QtGui/qrgba64.h \
   /usr/lib/gcc/x86_64-linux-gnu/11/include/limits.h \
   /usr/lib/gcc/x86_64-linux-gnu/11/include/syslimits.h \
   /usr/include/limits.h \
@@ -2856,45 +2858,72 @@ CMakeFiles/VibrationAnalyzerApp.dir/src/main.cpp.o: ../src/main.cpp \
   /usr/include/x86_64-linux-gnu/bits/posix2_lim.h \
   /usr/include/x86_64-linux-gnu/bits/xopen_lim.h \
   /usr/include/x86_64-linux-gnu/bits/uio_lim.h \
+  /usr/include/x86_64-linux-gnu/qt6/QtGui/qbrush.h \
+  /usr/include/x86_64-linux-gnu/qt6/QtGui/qimage.h \
+  /usr/include/x86_64-linux-gnu/qt6/QtGui/qpixelformat.h \
+  /usr/include/x86_64-linux-gnu/qt6/QtGui/qtransform.h \
+  /usr/include/x86_64-linux-gnu/qt6/QtGui/qpolygon.h \
+  /usr/include/x86_64-linux-gnu/qt6/QtGui/qregion.h \
+  /usr/include/x86_64-linux-gnu/qt6/QtCore/qline.h \
+  /usr/include/x86_64-linux-gnu/qt6/QtGui/qpixmap.h \
   /usr/include/x86_64-linux-gnu/qt6/QtCore/qsharedpointer.h \
+  /usr/include/x86_64-linux-gnu/qt6/QtCore/qshareddata.h \
   /usr/include/x86_64-linux-gnu/qt6/QtCore/qsharedpointer_impl.h \
+  /usr/include/x86_64-linux-gnu/qt6/QtGui/qfont.h \
+  /usr/include/x86_64-linux-gnu/qt6/QtGui/qfontmetrics.h \
+  /usr/include/x86_64-linux-gnu/qt6/QtGui/qfontinfo.h \
+  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qsizepolicy.h \
+  /usr/include/x86_64-linux-gnu/qt6/QtGui/qcursor.h \
+  /usr/include/x86_64-linux-gnu/qt6/QtGui/qbitmap.h \
+  /usr/include/x86_64-linux-gnu/qt6/QtGui/qkeysequence.h \
+  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qtabwidget.h \
+  /usr/include/x86_64-linux-gnu/qt6/QtGui/qicon.h \
+  /usr/include/x86_64-linux-gnu/qt6/QtCore/QTimer \
+  /usr/include/x86_64-linux-gnu/qt6/QtCore/qtimer.h \
+  /usr/include/x86_64-linux-gnu/qt6/QtCore/qbasictimer.h \
+  /usr/include/x86_64-linux-gnu/qt6/QtCore/QVector \
+  /usr/include/x86_64-linux-gnu/qt6/QtCore/qvector.h \
+  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QApplication \
+  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qapplication.h \
+  /usr/include/x86_64-linux-gnu/qt6/QtCore/qcoreapplication.h \
+  /usr/include/x86_64-linux-gnu/qt6/QtCore/qcoreevent.h \
+  /usr/include/x86_64-linux-gnu/qt6/QtCore/qeventloop.h \
+  /usr/include/x86_64-linux-gnu/qt6/QtCore/qnativeinterface.h \
+  /usr/include/x86_64-linux-gnu/qt6/QtCore/qdebug.h \
+  /usr/include/x86_64-linux-gnu/qt6/QtCore/qhash.h \
+  /usr/include/x86_64-linux-gnu/qt6/QtCore/qmap.h \
+  /usr/include/x86_64-linux-gnu/qt6/QtCore/qshareddata_impl.h \
+  /usr/include/x86_64-linux-gnu/qt6/QtCore/qtextstream.h \
+  /usr/include/x86_64-linux-gnu/qt6/QtCore/qstringconverter.h \
+  /usr/include/x86_64-linux-gnu/qt6/QtCore/qset.h \
+  /usr/include/x86_64-linux-gnu/qt6/QtCore/qcontiguouscache.h \
   /usr/include/x86_64-linux-gnu/qt6/QtCore/qcoreapplication_platform.h \
-  /usr/include/x86_64-linux-gnu/qt6/QtGui/qwindowdefs.h \
+  /usr/include/x86_64-linux-gnu/qt6/QtGui/qguiapplication.h \
   /usr/include/x86_64-linux-gnu/qt6/QtGui/qinputmethod.h \
   /usr/include/x86_64-linux-gnu/qt6/QtCore/qlocale.h \
   /usr/include/x86_64-linux-gnu/qt6/QtCore/qvariant.h \
-  /usr/include/x86_64-linux-gnu/qt6/QtCore/qpoint.h \
-  /usr/include/x86_64-linux-gnu/qt6/QtCore/qsize.h \
-  /usr/include/x86_64-linux-gnu/qt6/QtCore/qmargins.h \
   /usr/include/x86_64-linux-gnu/qt6/QtGui/qguiapplication_platform.h \
-  /usr/include/x86_64-linux-gnu/qt6/QtGui/qguiapplication.h \
-  /usr/include/x86_64-linux-gnu/qt6/QtQml/QQmlApplicationEngine \
-  /usr/include/x86_64-linux-gnu/qt6/QtQml/qqmlapplicationengine.h \
-  /usr/include/x86_64-linux-gnu/qt6/QtQml/qqmlengine.h \
-  /usr/include/x86_64-linux-gnu/qt6/QtCore/qurl.h \
-  /usr/include/x86_64-linux-gnu/qt6/QtQml/qjsengine.h \
-  /usr/include/x86_64-linux-gnu/qt6/QtQml/qjsvalue.h \
-  /usr/include/x86_64-linux-gnu/qt6/QtQml/qtqmlglobal.h \
-  /usr/include/x86_64-linux-gnu/qt6/QtQml/qtqml-config.h \
-  /usr/include/x86_64-linux-gnu/qt6/QtNetwork/qtnetworkglobal.h \
-  /usr/include/x86_64-linux-gnu/qt6/QtNetwork/qtnetwork-config.h \
-  /usr/include/x86_64-linux-gnu/qt6/QtQml/qjsmanagedvalue.h \
-  /usr/include/x86_64-linux-gnu/qt6/QtQml/qjsprimitivevalue.h \
-  /usr/include/x86_64-linux-gnu/qt6/QtQml/qjsnumbercoercion.h \
-  /usr/include/x86_64-linux-gnu/qt6/QtQml/qqmldebug.h \
-  /usr/include/x86_64-linux-gnu/qt6/QtQml/qqml.h \
-  /usr/include/x86_64-linux-gnu/qt6/QtQml/qqmlprivate.h \
-  /usr/include/x86_64-linux-gnu/qt6/QtQml/qqmlparserstatus.h \
-  /usr/include/x86_64-linux-gnu/qt6/QtQml/qqmllist.h \
-  /usr/include/x86_64-linux-gnu/qt6/QtCore/QMetaType \
-  /usr/include/x86_64-linux-gnu/qt6/QtCore/qmetatype.h \
-  /usr/include/x86_64-linux-gnu/qt6/QtQml/qqmlpropertyvaluesource.h \
-  /usr/include/x86_64-linux-gnu/qt6/QtCore/qpointer.h \
-  /usr/include/x86_64-linux-gnu/qt6/QtCore/qversionnumber.h \
-  /usr/include/x86_64-linux-gnu/qt6/QtCore/qmetaobject.h \
-  /usr/include/x86_64-linux-gnu/qt6/QtQml/qqmlregistration.h \
-  /usr/include/x86_64-linux-gnu/qt6/QtQml/qqmlerror.h \
-  /usr/include/x86_64-linux-gnu/qt6/QtQml/qqmlabstracturlinterceptor.h
+  /usr/include/x86_64-linux-gnu/qt6/QtGui/QScreen \
+  /usr/include/x86_64-linux-gnu/qt6/QtGui/qscreen.h \
+  /usr/include/x86_64-linux-gnu/qt6/QtCore/QList \
+  /usr/include/x86_64-linux-gnu/qt6/QtCore/qlist.h \
+  /usr/include/x86_64-linux-gnu/qt6/QtCore/QObject \
+  /usr/include/x86_64-linux-gnu/qt6/QtCore/qobject.h \
+  /usr/include/x86_64-linux-gnu/qt6/QtCore/QRect \
+  /usr/include/x86_64-linux-gnu/qt6/QtCore/qrect.h \
+  /usr/include/x86_64-linux-gnu/qt6/QtCore/QSize \
+  /usr/include/x86_64-linux-gnu/qt6/QtCore/qsize.h \
+  /usr/include/x86_64-linux-gnu/qt6/QtCore/QSizeF \
+  /usr/include/x86_64-linux-gnu/qt6/QtGui/QTransform \
+  /usr/include/x86_64-linux-gnu/qt6/QtGui/qtransform.h \
+  /usr/include/x86_64-linux-gnu/qt6/QtGui/QShortcut \
+  /usr/include/x86_64-linux-gnu/qt6/QtGui/qshortcut.h \
+  /usr/include/x86_64-linux-gnu/qt6/QtGui/QKeySequence \
+  /usr/include/x86_64-linux-gnu/qt6/QtGui/qkeysequence.h \
+  /usr/include/x86_64-linux-gnu/qt6/QtCore/QCoreApplication \
+  /usr/include/x86_64-linux-gnu/qt6/QtCore/qcoreapplication.h \
+  /usr/include/x86_64-linux-gnu/qt6/QtGui/QFont \
+  /usr/include/x86_64-linux-gnu/qt6/QtGui/qfont.h
 
 CMakeFiles/VibrationAnalyzerApp.dir/src/qcustomplot.cpp.o: ../src/qcustomplot.cpp \
   /usr/include/stdc-predef.h \
@@ -4028,29 +4057,15 @@ CMakeFiles/VibrationAnalyzerApp.dir/src/qcustomplot.cpp.o: ../src/qcustomplot.cp
 
 ../src/qcustomplot.cpp:
 
-/usr/include/x86_64-linux-gnu/qt6/QtQml/qqmlabstracturlinterceptor.h:
+/usr/include/x86_64-linux-gnu/qt6/QtGui/QKeySequence:
 
-/usr/include/x86_64-linux-gnu/qt6/QtQml/qqmlerror.h:
-
-/usr/include/x86_64-linux-gnu/qt6/QtQml/qqmlparserstatus.h:
-
-/usr/include/x86_64-linux-gnu/qt6/QtQml/qqmlprivate.h:
-
-/usr/include/x86_64-linux-gnu/qt6/QtQml/qqmldebug.h:
-
-/usr/include/x86_64-linux-gnu/qt6/QtNetwork/qtnetwork-config.h:
-
-/usr/include/x86_64-linux-gnu/qt6/QtQml/qjsengine.h:
-
-/usr/include/x86_64-linux-gnu/qt6/QtQml/qqmlapplicationengine.h:
-
-/usr/include/x86_64-linux-gnu/qt6/QtQml/QQmlApplicationEngine:
-
-/usr/include/x86_64-linux-gnu/qt6/QtGui/QGuiApplication:
+/usr/include/x86_64-linux-gnu/qt6/QtWidgets/QApplication:
 
 ../src/main.cpp:
 
 ../src/Simulation.cpp:
+
+/usr/include/x86_64-linux-gnu/qt6/QtGui/QFont:
 
 /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QStatusBar:
 
@@ -4101,8 +4116,6 @@ CMakeFiles/VibrationAnalyzerApp.dir/src/qcustomplot.cpp.o: ../src/qcustomplot.cp
 /usr/include/x86_64-linux-gnu/qt6/QtGui/QShortcut:
 
 /usr/include/x86_64-linux-gnu/qt6/QtCore/QVariant:
-
-/usr/include/x86_64-linux-gnu/qt6/QtQml/qjsnumbercoercion.h:
 
 /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QScrollerProperties:
 
@@ -4313,8 +4326,6 @@ CMakeFiles/VibrationAnalyzerApp.dir/src/qcustomplot.cpp.o: ../src/qcustomplot.cp
 /usr/lib/gcc/x86_64-linux-gnu/11/include/avx512bf16vlintrin.h:
 
 /usr/lib/gcc/x86_64-linux-gnu/11/include/vpclmulqdqintrin.h:
-
-/usr/include/x86_64-linux-gnu/qt6/QtNetwork/qtnetworkglobal.h:
 
 /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qstyleplugin.h:
 
@@ -4552,8 +4563,6 @@ CMakeFiles/VibrationAnalyzerApp.dir/src/qcustomplot.cpp.o: ../src/qcustomplot.cp
 
 /usr/include/c++/11/tr1/poly_hermite.tcc:
 
-/usr/include/x86_64-linux-gnu/qt6/QtQml/qtqml-config.h:
-
 VibrationAnalyzerApp_autogen/DIG64O274K/moc_MainWindow.cpp:
 
 /usr/include/x86_64-linux-gnu/qt6/QtCore/qabstractnativeeventfilter.h:
@@ -4611,8 +4620,6 @@ VibrationAnalyzerApp_autogen/DIG64O274K/moc_MainWindow.cpp:
 /usr/include/x86_64-linux-gnu/qt6/QtCore/qstringlistmodel.h:
 
 /usr/include/x86_64-linux-gnu/bits/libm-simd-decl-stubs.h:
-
-/usr/include/x86_64-linux-gnu/qt6/QtQml/qqmlpropertyvaluesource.h:
 
 /usr/include/x86_64-linux-gnu/bits/types/struct_FILE.h:
 
@@ -4932,8 +4939,6 @@ VibrationAnalyzerApp_autogen/mocs_compilation.cpp:
 
 /usr/include/c++/11/debug/debug.h:
 
-/usr/include/x86_64-linux-gnu/qt6/QtQml/qqmllist.h:
-
 /usr/include/x86_64-linux-gnu/qt6/QtGui/qopenglcontext_platform.h:
 
 /usr/lib/gcc/x86_64-linux-gnu/11/include/syslimits.h:
@@ -4958,8 +4963,6 @@ VibrationAnalyzerApp_autogen/mocs_compilation.cpp:
 
 /usr/include/x86_64-linux-gnu/qt6/QtCore/qiodevicebase.h:
 
-/usr/include/x86_64-linux-gnu/qt6/QtQml/qqmlregistration.h:
-
 /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qfileiconprovider.h:
 
 /usr/include/x86_64-linux-gnu/qt6/QtCore/qpluginloader.h:
@@ -4981,6 +4984,8 @@ VibrationAnalyzerApp_autogen/mocs_compilation.cpp:
 /usr/include/endian.h:
 
 /usr/include/c++/11/bits/cpp_type_traits.h:
+
+/usr/include/x86_64-linux-gnu/qt6/QtCore/QCoreApplication:
 
 /usr/include/c++/11/bits/std_thread.h:
 
@@ -5177,8 +5182,6 @@ VibrationAnalyzerApp_autogen/mocs_compilation.cpp:
 /usr/include/c++/11/stdexcept:
 
 /usr/include/locale.h:
-
-/usr/include/x86_64-linux-gnu/qt6/QtQml/qqml.h:
 
 /usr/include/x86_64-linux-gnu/qt6/QtGui/qtextformat.h:
 
@@ -5380,8 +5383,6 @@ VibrationAnalyzerApp_autogen/mocs_compilation.cpp:
 
 /usr/include/x86_64-linux-gnu/bits/types/__fpos64_t.h:
 
-/usr/include/x86_64-linux-gnu/qt6/QtQml/qjsvalue.h:
-
 /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qgraphicslayout.h:
 
 /usr/lib/gcc/x86_64-linux-gnu/11/include/avx512vlbwintrin.h:
@@ -5447,8 +5448,6 @@ VibrationAnalyzerApp_autogen/mocs_compilation.cpp:
 /usr/include/x86_64-linux-gnu/qt6/QtCore/qbytearrayview.h:
 
 /usr/include/c++/11/stdlib.h:
-
-/usr/include/x86_64-linux-gnu/qt6/QtQml/qjsprimitivevalue.h:
 
 /usr/include/x86_64-linux-gnu/qt6/QtCore/qstringliteral.h:
 
@@ -5706,8 +5705,6 @@ VibrationAnalyzerApp_autogen/DIG64O274K/moc_qcustomplot.cpp:
 
 /usr/include/x86_64-linux-gnu/qt6/QtGui/qvector2d.h:
 
-/usr/include/x86_64-linux-gnu/qt6/QtQml/qjsmanagedvalue.h:
-
 /usr/include/x86_64-linux-gnu/qt6/QtGui/qvectornd.h:
 
 /usr/include/x86_64-linux-gnu/qt6/QtGui/qpointingdevice.h:
@@ -5788,8 +5785,6 @@ VibrationAnalyzerApp_autogen/DIG64O274K/moc_qcustomplot.cpp:
 
 /usr/include/x86_64-linux-gnu/qt6/QtCore/qcollator.h:
 
-/usr/include/x86_64-linux-gnu/qt6/QtQml/qtqmlglobal.h:
-
 /usr/include/x86_64-linux-gnu/qt6/QtCore/qsharedmemory.h:
 
 /usr/include/x86_64-linux-gnu/qt6/QtCore/qcommandlineoption.h:
@@ -5805,8 +5800,6 @@ VibrationAnalyzerApp_autogen/DIG64O274K/moc_qcustomplot.cpp:
 /usr/include/x86_64-linux-gnu/qt6/QtCore/qcoreapplication_platform.h:
 
 /usr/include/x86_64-linux-gnu/qt6/QtCore/qdeadlinetimer.h:
-
-/usr/include/x86_64-linux-gnu/qt6/QtQml/qqmlengine.h:
 
 /usr/include/c++/11/bits/locale_facets_nonio.h:
 

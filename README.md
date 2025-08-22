@@ -72,3 +72,54 @@ Muốn tôi làm gì tiếp theo?
 
 Liên hệ nhanh
 - Sau khi chạy, nếu gặp lỗi, copy/paste output terminal (toàn bộ thông báo) vào đây để tôi hướng dẫn tiếp.
+
+Cross-compile from a Linux laptop to Raspberry Pi 4 (aarch64)
+
+This project includes helper files for cross-compiling: `cmake/toolchain_pi_aarch64.cmake` and `build_for_pi.sh`.
+
+Quick overview (high-level steps)
+1. Prepare a sysroot (copy of Pi /usr and /lib) on the laptop.
+2. Install an aarch64 cross-compiler on the laptop.
+3. Run the provided `build_for_pi.sh` (set RPI_SYSROOT) to cross-build a Release binary.
+4. Copy the binary to the Pi and run (ensure Qt runtime on Pi or bundle libs).
+
+Detailed commands (example)
+
+# On laptop: install tools
+sudo apt update
+sudo apt install gcc-aarch64-linux-gnu g++-aarch64-linux-gnu rsync
+
+# Create a directory for the Pi sysroot on laptop
+mkdir -p ~/raspi-sysroot
+
+# Rsync the Pi root libraries to laptop (replace user@pi)
+rsync -a --delete --rsync-path="sudo rsync" user@pi:/lib ~/raspi-sysroot/
+rsync -a --delete --rsync-path="sudo rsync" user@pi:/usr ~/raspi-sysroot/
+# If Qt is installed on Pi under /opt/Qt copy it too:
+rsync -a --delete user@pi:/opt/Qt ~/raspi-sysroot/opt/
+
+# On laptop: set RPI_SYSROOT and run the helper script (project root)
+export RPI_SYSROOT=~/raspi-sysroot
+./build_for_pi.sh
+
+The script will call CMake with `-DCMAKE_TOOLCHAIN_FILE=cmake/toolchain_pi_aarch64.cmake` and build to `build-pi`.
+
+After build
+
+# Copy binary to Pi (replace user@pi)
+scp build-pi/VibrationAnalyzerApp user@pi:/home/user/
+
+# On Pi: run (ensure Qt runtime exists on Pi or set LD_LIBRARY_PATH to Qt libs)
+export QT_QPA_PLATFORM=xcb
+./VibrationAnalyzerApp
+
+Notes and tips
+- For Raspberry Pi 4 (4GB) we recommend Raspberry Pi OS 64-bit to use all memory.
+- Recommended to set `-DENABLE_QML=OFF` for cross-build to reduce Qt dependencies (Widgets-only build). The build script already uses that flag.
+- If Pi doesn't have Qt runtime, either install Qt on Pi (apt or Qt installer) or copy needed Qt libraries and plugins from the sysroot (or use linuxdeployqt on the Pi to bundle).
+- After building, strip the binary to reduce size: `strip build-pi/VibrationAnalyzerApp`.
+- If you need to enable QML on Pi, ensure the same Qt version and modules (Quick, Qml, Charts, QuickControls2) are present on the Pi.
+
+If you want, I can also:
+- Add a script to automatically rsync a minimal sysroot (only required Qt folders + /usr/lib) from the Pi. 
+- Add a packaging step (linuxdeployqt) to bundle Qt libs on the Pi.

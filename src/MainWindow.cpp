@@ -12,6 +12,7 @@
 #include <QGridLayout>
 #include <QCheckBox>
 #include <QStatusBar>
+#include <QFont>
 
 
 
@@ -19,6 +20,8 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent) {
     QWidget *central = new QWidget(this);
     setCentralWidget(central);
     setWindowTitle("Vibration Analyser");
+    // Start the main window in full screen (or change to showMaximized())
+    setWindowState(Qt::WindowFullScreen);
 
     // Left panel
     QVBoxLayout *leftLayout = new QVBoxLayout;
@@ -62,7 +65,17 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent) {
 
     // Main layout
     QHBoxLayout *mainLayout = new QHBoxLayout(central);
-    mainLayout->addLayout(leftLayout);
+    // Put left controls into a dedicated widget so we can fix its width
+    QWidget *leftWidget = new QWidget;
+    // Use smaller font for left controls to reduce their visual size
+    QFont controlFont("Arial", 9);
+    leftWidget->setFont(controlFont);
+    leftWidget->setLayout(leftLayout);
+    leftWidget->setFixedWidth(200); // make left panel compact
+    mainLayout->addWidget(leftWidget);
+    // Give right panel more space than left panel
+    mainLayout->setStretch(0, 1);
+    mainLayout->setStretch(1, 4);
 
     // Right panel
     QVBoxLayout *rightLayout = new QVBoxLayout;
@@ -114,29 +127,56 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent) {
     setupSimulationPlot(simPlot2, tData2, yData2, simIndex2, Qt::red);
     setupSimulationPlot(simPlot3, tData3, yData3, simIndex3, Qt::green);
     setupSimulationPlot(simPlot4, tData4, yData4, simIndex4, Qt::magenta);
-    rightLayout->addWidget(simPlot);
-    rightLayout->addWidget(simPlot2);
-    rightLayout->addWidget(simPlot3);
-    rightLayout->addWidget(simPlot4);
+    // Make plots expand and bigger for better visibility
+    QSizePolicy plotPolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
+    simPlot->setSizePolicy(plotPolicy);
+    simPlot2->setSizePolicy(plotPolicy);
+    simPlot3->setSizePolicy(plotPolicy);
+    simPlot4->setSizePolicy(plotPolicy);
+
+    simPlot->setMinimumHeight(360);
+    simPlot2->setMinimumHeight(240);
+    simPlot3->setMinimumHeight(360);
+    simPlot4->setMinimumHeight(240);
+
+    // Add with stretch factors so top/bottom plots get more/less space as desired
+    rightLayout->addWidget(simPlot, 3);
+    rightLayout->addWidget(simPlot2, 2);
+    rightLayout->addWidget(simPlot3, 3);
+    rightLayout->addWidget(simPlot4, 2);
+
+    // Improve readability: increase axis label and tick font sizes for plots
+    QFont axisFont("Arial", 16, QFont::Bold);
+    QFont tickFont("Arial", 12);
+    auto applyAxisFonts = [&](QCustomPlot* p){
+        p->xAxis->setLabelFont(axisFont);
+        p->yAxis->setLabelFont(axisFont);
+        p->xAxis->setTickLabelFont(tickFont);
+        p->yAxis->setTickLabelFont(tickFont);
+    };
+    applyAxisFonts(simPlot);
+    applyAxisFonts(simPlot2);
+    applyAxisFonts(simPlot3);
+    applyAxisFonts(simPlot4);
 
     mainLayout->addLayout(rightLayout);
 
     // Khởi tạo timer cho từng plot
     simTimer = new QTimer(this);
     connect(simTimer, &QTimer::timeout, this, &MainWindow::updateSimulation);
-    simTimer->start(20);
+    simTimer->start(33); // ~30 FPS updates
 
     simTimer2 = new QTimer(this);
     connect(simTimer2, &QTimer::timeout, this, &MainWindow::updateSimulation2);
-    simTimer2->start(20);
+    simTimer2->start(33);
 
     simTimer3 = new QTimer(this);
     connect(simTimer3, &QTimer::timeout, this, &MainWindow::updateSimulation3);
-    simTimer3->start(20);
+    simTimer3->start(33);
 
     simTimer4 = new QTimer(this);
     connect(simTimer4, &QTimer::timeout, this, &MainWindow::updateSimulation4);
-    simTimer4->start(20);
+    simTimer4->start(33);
 }
 
 void MainWindow::setupSimulationPlot(QCustomPlot*& plot, QVector<double>& t, QVector<double>& y, int& idx, QColor color) {
@@ -145,6 +185,15 @@ void MainWindow::setupSimulationPlot(QCustomPlot*& plot, QVector<double>& t, QVe
     plot->xAxis->setLabel("Time [s]");
     plot->yAxis->setLabel("Amplitude");
     plot->graph(0)->setPen(QPen(color));
+    // Performance: disable antialiasing and heavy drawing features for embedded devices
+    plot->setNotAntialiasedElements(QCP::aeAll);
+    plot->setNoAntialiasingOnDrag(true);
+    plot->graph(0)->setScatterStyle(QCPScatterStyle::ssNone);
+    plot->graph(0)->setAdaptiveSampling(true);
+    plot->setInteractions(QCP::iRangeDrag | QCP::iRangeZoom); // minimal interactions
+    // Reserve buffers to avoid repeated reallocations
+    t.reserve(20000);
+    y.reserve(20000);
     t.clear();
     y.clear();
     idx = 0;
