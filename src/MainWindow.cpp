@@ -45,6 +45,7 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent) {
     deviceTimer->start();
     connect(refreshDevicesBtn, &QPushButton::clicked, this, [this]() { updateDeviceStatus(); });
     updateDeviceStatus();
+<<<<<<< HEAD
 }
 
 void MainWindow::updateDeviceStatus()
@@ -59,11 +60,17 @@ void MainWindow::updateDeviceStatus()
         deviceStatusLabel->setStyleSheet("color: green;");
     }
 
+=======
+>>>>>>> 35c53d9 ([Project]-Add USB connect sensor)
 
     // ...existing code...
     // RealTime button and DAQ worker
     QPushButton *realTimeBtn = new QPushButton("RealTime");
+<<<<<<< HEAD
     setLayout->addWidget(realTimeBtn);
+=======
+    leftLayout->addWidget(realTimeBtn);
+>>>>>>> 35c53d9 ([Project]-Add USB connect sensor)
     daqWorker = new DAQWorker(this);
     connect(daqWorker, &DAQWorker::samplesReady, this, &MainWindow::onDaqSamples);
     connect(realTimeBtn, &QPushButton::clicked, [this, realTimeBtn]() {
@@ -223,6 +230,22 @@ void MainWindow::updateDeviceStatus()
         simPlot->replot();
     });
     replotTimer->start();
+<<<<<<< HEAD
+=======
+}
+
+void MainWindow::updateDeviceStatus()
+{
+    QStringList devs = DAQWorker::availableDevices();
+    if (devs.isEmpty()) {
+        deviceStatusLabel->setText("<b>Device:</b> Not found");
+        deviceStatusLabel->setStyleSheet("color: red;");
+    } else {
+        QString d = devs.first();
+        deviceStatusLabel->setText(QString("<b>Device:</b> %1  — Connected").arg(d));
+        deviceStatusLabel->setStyleSheet("color: green;");
+    }
+>>>>>>> 35c53d9 ([Project]-Add USB connect sensor)
 }
 
 void MainWindow::setupSimulationPlot(QCustomPlot*& plot, QVector<double>& t, QVector<double>& y, int& idx, QColor color) {

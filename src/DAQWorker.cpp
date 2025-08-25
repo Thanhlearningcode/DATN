@@ -1,5 +1,10 @@
 #include "DAQWorker.h"
 #include <QDebug>
+<<<<<<< HEAD
+=======
+#include <QStringList>
+#include <cmath>
+>>>>>>> 35c53d9 ([Project]-Add USB connect sensor)
 
 // If NIDAQ is not available at compile time, provide a stub that emits zeros
 #ifdef NIDAQ_AVAILABLE
@@ -88,3 +93,17 @@ done:
     }
 #endif
 }
+<<<<<<< HEAD
+=======
+
+QStringList DAQWorker::availableDevices() {
+#ifdef NIDAQ_AVAILABLE
+    // If NI-DAQ is available, query devices here. For now return empty to let runtime detect.
+    // TODO: implement actual device enumeration using DAQmx functions when available.
+    return QStringList();
+#else
+    // When NI drivers are not present, expose a simulated device name so UI can show 'Connected'
+    return QStringList{"No Connect Dev"};
+#endif
+}
+>>>>>>> 35c53d9 ([Project]-Add USB connect sensor)

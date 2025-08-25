@@ -1,4 +1,0 @@
-/home/thanh/Project/DATN/vibration-analyzer/build/CMakeFiles/VibrationAnalyzerApp.dir
-/home/thanh/Project/DATN/vibration-analyzer/build/CMakeFiles/edit_cache.dir
-/home/thanh/Project/DATN/vibration-analyzer/build/CMakeFiles/rebuild_cache.dir
-/home/thanh/Project/DATN/vibration-analyzer/build/CMakeFiles/VibrationAnalyzerApp_autogen.dir
