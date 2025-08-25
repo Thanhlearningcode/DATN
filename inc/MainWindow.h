@@ -7,6 +7,8 @@ class QCustomPlot;
 #include <QTimer>
 #include <vector>
 #include <QVector>
+class QLabel;
+class DAQWorker;
 
 class MainWindow : public QMainWindow {
     Q_OBJECT
@@ -35,6 +37,13 @@ public:
     int simIndex3 = 0;
     int simIndex4 = 0;
     void setupSimulationPlot(QCustomPlot*& plot, QVector<double>& t, QVector<double>& y, int& idx, QColor color);
+    void updateDeviceStatus();
+    // DAQ integration
+    DAQWorker *daqWorker = nullptr;
+    QLabel *deviceStatusLabel = nullptr;
+
+private slots:
+    void onDaqSamples(const QVector<double> &times, const QVector<double> &values);
 private slots:
     void updateSimulation();
     void updateSimulation2();

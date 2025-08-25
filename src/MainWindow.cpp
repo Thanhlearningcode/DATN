@@ -1,6 +1,7 @@
 #include "MainWindow.h"
 #include "Simulation.h"
 #include "qcustomplot.h"
+#include "DAQWorker.h"
 #include <QWidget>
 #include <QComboBox>
 #include <QPushButton>
@@ -25,17 +26,58 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent) {
 
     // Left panel
     QVBoxLayout *leftLayout = new QVBoxLayout;
-    QGroupBox *comGroup = new QGroupBox("COM:");
-    QVBoxLayout *comLayout = new QVBoxLayout;
-    QComboBox *comCombo = new QComboBox;
-    comCombo->addItems({"ReCOM", "COM1", "COM2", "COM3"});
-    comLayout->addWidget(comCombo);
-    comGroup->setLayout(comLayout);
-    leftLayout->addWidget(comGroup);
+    // Device status group (replaces COM selection)
+    QGroupBox *deviceGroup = new QGroupBox("Device");
+    QVBoxLayout *deviceLayout = new QVBoxLayout;
+    deviceStatusLabel = new QLabel("Checking...");
+    deviceStatusLabel->setAlignment(Qt::AlignLeft | Qt::AlignVCenter);
+    deviceStatusLabel->setMinimumHeight(24);
+    deviceLayout->addWidget(deviceStatusLabel);
+    QPushButton *refreshDevicesBtn = new QPushButton("Refresh");
+    deviceLayout->addWidget(refreshDevicesBtn);
+    deviceGroup->setLayout(deviceLayout);
+    leftLayout->addWidget(deviceGroup);
 
+    // Timer to auto-refresh device list/status
+    QTimer *deviceTimer = new QTimer(this);
+    deviceTimer->setInterval(2000); // every 2s
+    connect(deviceTimer, &QTimer::timeout, this, [this]() { updateDeviceStatus(); });
+    deviceTimer->start();
+    connect(refreshDevicesBtn, &QPushButton::clicked, this, [this]() { updateDeviceStatus(); });
+    updateDeviceStatus();
+}
+
+void MainWindow::updateDeviceStatus()
+{
+    QStringList devs = DAQWorker::availableDevices();
+    if (devs.isEmpty()) {
+        deviceStatusLabel->setText("<b>Device:</b> Not found");
+        deviceStatusLabel->setStyleSheet("color: red;");
+    } else {
+        QString d = devs.first();
+        deviceStatusLabel->setText(QString("<b>Device:</b> %1  — Connected").arg(d));
+        deviceStatusLabel->setStyleSheet("color: green;");
+    }
+
+
+    // ...existing code...
+    // RealTime button and DAQ worker
     QPushButton *realTimeBtn = new QPushButton("RealTime");
-    leftLayout->addWidget(realTimeBtn);
+    setLayout->addWidget(realTimeBtn);
+    daqWorker = new DAQWorker(this);
+    connect(daqWorker, &DAQWorker::samplesReady, this, &MainWindow::onDaqSamples);
+    connect(realTimeBtn, &QPushButton::clicked, [this, realTimeBtn]() {
+        if (!daqWorker) return;
+        if (!daqWorker->isRunning()) {
+            daqWorker->startAcquisition("Dev1/ai0", 1000.0, 200);
+            realTimeBtn->setText("StopRealtime");
+        } else {
+            daqWorker->stopAcquisition();
+            realTimeBtn->setText("RealTime");
+        }
+    });
 
+    // Log group
     QGroupBox *logGroup = new QGroupBox("Analys Log");
     QVBoxLayout *logLayout = new QVBoxLayout;
     QPushButton *fileBtn = new QPushButton("...");
@@ -65,15 +107,12 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent) {
 
     // Main layout
     QHBoxLayout *mainLayout = new QHBoxLayout(central);
-    // Put left controls into a dedicated widget so we can fix its width
     QWidget *leftWidget = new QWidget;
-    // Use smaller font for left controls to reduce their visual size
     QFont controlFont("Arial", 9);
     leftWidget->setFont(controlFont);
     leftWidget->setLayout(leftLayout);
-    leftWidget->setFixedWidth(200); // make left panel compact
+    leftWidget->setFixedWidth(200);
     mainLayout->addWidget(leftWidget);
-    // Give right panel more space than left panel
     mainLayout->setStretch(0, 1);
     mainLayout->setStretch(1, 4);
 
@@ -127,7 +166,6 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent) {
     setupSimulationPlot(simPlot2, tData2, yData2, simIndex2, Qt::red);
     setupSimulationPlot(simPlot3, tData3, yData3, simIndex3, Qt::green);
     setupSimulationPlot(simPlot4, tData4, yData4, simIndex4, Qt::magenta);
-    // Make plots expand and bigger for better visibility
     QSizePolicy plotPolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
     simPlot->setSizePolicy(plotPolicy);
     simPlot2->setSizePolicy(plotPolicy);
@@ -139,13 +177,11 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent) {
     simPlot3->setMinimumHeight(360);
     simPlot4->setMinimumHeight(240);
 
-    // Add with stretch factors so top/bottom plots get more/less space as desired
     rightLayout->addWidget(simPlot, 3);
     rightLayout->addWidget(simPlot2, 2);
     rightLayout->addWidget(simPlot3, 3);
     rightLayout->addWidget(simPlot4, 2);
 
-    // Improve readability: increase axis label and tick font sizes for plots
     QFont axisFont("Arial", 16, QFont::Bold);
     QFont tickFont("Arial", 12);
     auto applyAxisFonts = [&](QCustomPlot* p){
@@ -161,10 +197,10 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent) {
 
     mainLayout->addLayout(rightLayout);
 
-    // Khởi tạo timer cho từng plot
+    // Timers for plots
     simTimer = new QTimer(this);
     connect(simTimer, &QTimer::timeout, this, &MainWindow::updateSimulation);
-    simTimer->start(33); // ~30 FPS updates
+    simTimer->start(33);
 
     simTimer2 = new QTimer(this);
     connect(simTimer2, &QTimer::timeout, this, &MainWindow::updateSimulation2);
@@ -177,6 +213,16 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent) {
     simTimer4 = new QTimer(this);
     connect(simTimer4, &QTimer::timeout, this, &MainWindow::updateSimulation4);
     simTimer4->start(33);
+
+    QTimer *replotTimer = new QTimer(this);
+    replotTimer->setInterval(33);
+    connect(replotTimer, &QTimer::timeout, [this]() {
+        simPlot->graph(0)->setData(tData, yData);
+        simPlot->xAxis->setRange(0, duration);
+        simPlot->yAxis->rescale();
+        simPlot->replot();
+    });
+    replotTimer->start();
 }
 
 void MainWindow::setupSimulationPlot(QCustomPlot*& plot, QVector<double>& t, QVector<double>& y, int& idx, QColor color) {
@@ -273,6 +319,21 @@ void MainWindow::updateSimulation4() {
     simPlot4->xAxis->setRange(0, duration);
     simPlot4->yAxis->rescale();
     simPlot4->replot();
+}
+
+void MainWindow::onDaqSamples(const QVector<double> &times, const QVector<double> &values) {
+    // Append incoming DAQ samples to plot buffer (for demo append to plot 1)
+    // Keep buffer bounded
+    const int maxSamples = 20000;
+    for (int i = 0; i < values.size(); ++i) {
+        tData.append(times[i]);
+        yData.append(values[i]);
+    }
+    if (tData.size() > maxSamples) {
+        int removeCnt = tData.size() - maxSamples;
+        tData.remove(0, removeCnt);
+        yData.remove(0, removeCnt);
+    }
 }
 
 MainWindow::~MainWindow() {

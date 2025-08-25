@@ -6,6 +6,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/VibrationAnalyzerApp.dir/VibrationAnalyzerApp_autogen/EWIEGA46WW/qrc_resources.cpp.o.d"
   "CMakeFiles/VibrationAnalyzerApp.dir/VibrationAnalyzerApp_autogen/mocs_compilation.cpp.o"
   "CMakeFiles/VibrationAnalyzerApp.dir/VibrationAnalyzerApp_autogen/mocs_compilation.cpp.o.d"
+  "CMakeFiles/VibrationAnalyzerApp.dir/src/DAQWorker.cpp.o"
+  "CMakeFiles/VibrationAnalyzerApp.dir/src/DAQWorker.cpp.o.d"
   "CMakeFiles/VibrationAnalyzerApp.dir/src/MainWindow.cpp.o"
   "CMakeFiles/VibrationAnalyzerApp.dir/src/MainWindow.cpp.o.d"
   "CMakeFiles/VibrationAnalyzerApp.dir/src/Simulation.cpp.o"

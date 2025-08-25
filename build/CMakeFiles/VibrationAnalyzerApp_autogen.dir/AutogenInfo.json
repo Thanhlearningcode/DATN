@@ -742,6 +742,12 @@
 			"Mu",
 			"DIG64O274K/moc_qcustomplot.cpp",
 			null
+		],
+		[
+			"/home/thanh/Project/DATN/vibration-analyzer/src/DAQWorker.h",
+			"Mu",
+			"UVLADIE3JM/moc_DAQWorker.cpp",
+			null
 		]
 	],
 	"HEADER_EXTENSIONS" : [ "h", "hh", "h++", "hm", "hpp", "hxx", "in", "txx" ],
@@ -819,6 +825,11 @@
 	"SETTINGS_FILE" : "/home/thanh/Project/DATN/vibration-analyzer/build/CMakeFiles/VibrationAnalyzerApp_autogen.dir/AutogenUsed.txt",
 	"SOURCES" : 
 	[
+		[
+			"/home/thanh/Project/DATN/vibration-analyzer/src/DAQWorker.cpp",
+			"Mu",
+			null
+		],
 		[
 			"/home/thanh/Project/DATN/vibration-analyzer/src/MainWindow.cpp",
 			"Mu",

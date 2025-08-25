@@ -5,6 +5,8 @@
 #include <QKeySequence>
 #include <QCoreApplication>
 #include <QFont>
+#include <QFile>
+#include <QTextStream>
 
 int main(int argc, char *argv[])
 {
@@ -16,6 +18,15 @@ int main(int argc, char *argv[])
     QFont appFont = app.font();
     appFont.setPointSize(12);
     app.setFont(appFont);
+
+    // Load bundled theme (if present)
+    QFile themeFile(":/styles/dark.qss");
+    if (themeFile.open(QFile::ReadOnly | QFile::Text)) {
+        QTextStream in(&themeFile);
+        QString style = in.readAll();
+        app.setStyleSheet(style);
+        themeFile.close();
+    }
 
     MainWindow w;
 

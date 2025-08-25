@@ -1067,6 +1067,8 @@ CMakeFiles/VibrationAnalyzerApp.dir/src/MainWindow.cpp.o: \
  /usr/include/x86_64-linux-gnu/qt6/QtPrintSupport/qtprintsupportversion.h \
  /usr/include/x86_64-linux-gnu/qt6/QtCore/QElapsedTimer \
  /usr/include/x86_64-linux-gnu/qt6/QtCore/QTimeZone \
+ /home/thanh/Project/DATN/vibration-analyzer/src/DAQWorker.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/QThread \
  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QWidget \
  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QComboBox \
  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QPushButton \

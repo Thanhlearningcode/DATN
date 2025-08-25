@@ -72,6 +72,7 @@ include CMakeFiles/VibrationAnalyzerApp.dir/flags.make
 VibrationAnalyzerApp_autogen/EWIEGA46WW/qrc_resources.cpp: ../resources.qrc
 VibrationAnalyzerApp_autogen/EWIEGA46WW/qrc_resources.cpp: CMakeFiles/VibrationAnalyzerApp_autogen.dir/AutoRcc_resources_EWIEGA46WW_Info.json
 VibrationAnalyzerApp_autogen/EWIEGA46WW/qrc_resources.cpp: ../main.qml
+VibrationAnalyzerApp_autogen/EWIEGA46WW/qrc_resources.cpp: ../src/styles/dark.qss
 VibrationAnalyzerApp_autogen/EWIEGA46WW/qrc_resources.cpp: /usr/lib/qt6/libexec/rcc
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/thanh/Project/DATN/vibration-analyzer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Automatic RCC for resources.qrc"
 	/usr/bin/cmake -E cmake_autorcc /home/thanh/Project/DATN/vibration-analyzer/build/CMakeFiles/VibrationAnalyzerApp_autogen.dir/AutoRcc_resources_EWIEGA46WW_Info.json 
@@ -132,10 +133,24 @@ CMakeFiles/VibrationAnalyzerApp.dir/src/Simulation.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/VibrationAnalyzerApp.dir/src/Simulation.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/thanh/Project/DATN/vibration-analyzer/src/Simulation.cpp -o CMakeFiles/VibrationAnalyzerApp.dir/src/Simulation.cpp.s
 
+CMakeFiles/VibrationAnalyzerApp.dir/src/DAQWorker.cpp.o: CMakeFiles/VibrationAnalyzerApp.dir/flags.make
+CMakeFiles/VibrationAnalyzerApp.dir/src/DAQWorker.cpp.o: ../src/DAQWorker.cpp
+CMakeFiles/VibrationAnalyzerApp.dir/src/DAQWorker.cpp.o: CMakeFiles/VibrationAnalyzerApp.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/thanh/Project/DATN/vibration-analyzer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/VibrationAnalyzerApp.dir/src/DAQWorker.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/VibrationAnalyzerApp.dir/src/DAQWorker.cpp.o -MF CMakeFiles/VibrationAnalyzerApp.dir/src/DAQWorker.cpp.o.d -o CMakeFiles/VibrationAnalyzerApp.dir/src/DAQWorker.cpp.o -c /home/thanh/Project/DATN/vibration-analyzer/src/DAQWorker.cpp
+
+CMakeFiles/VibrationAnalyzerApp.dir/src/DAQWorker.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/VibrationAnalyzerApp.dir/src/DAQWorker.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/thanh/Project/DATN/vibration-analyzer/src/DAQWorker.cpp > CMakeFiles/VibrationAnalyzerApp.dir/src/DAQWorker.cpp.i
+
+CMakeFiles/VibrationAnalyzerApp.dir/src/DAQWorker.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/VibrationAnalyzerApp.dir/src/DAQWorker.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/thanh/Project/DATN/vibration-analyzer/src/DAQWorker.cpp -o CMakeFiles/VibrationAnalyzerApp.dir/src/DAQWorker.cpp.s
+
 CMakeFiles/VibrationAnalyzerApp.dir/src/qcustomplot.cpp.o: CMakeFiles/VibrationAnalyzerApp.dir/flags.make
 CMakeFiles/VibrationAnalyzerApp.dir/src/qcustomplot.cpp.o: ../src/qcustomplot.cpp
 CMakeFiles/VibrationAnalyzerApp.dir/src/qcustomplot.cpp.o: CMakeFiles/VibrationAnalyzerApp.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/thanh/Project/DATN/vibration-analyzer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/VibrationAnalyzerApp.dir/src/qcustomplot.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/thanh/Project/DATN/vibration-analyzer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/VibrationAnalyzerApp.dir/src/qcustomplot.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/VibrationAnalyzerApp.dir/src/qcustomplot.cpp.o -MF CMakeFiles/VibrationAnalyzerApp.dir/src/qcustomplot.cpp.o.d -o CMakeFiles/VibrationAnalyzerApp.dir/src/qcustomplot.cpp.o -c /home/thanh/Project/DATN/vibration-analyzer/src/qcustomplot.cpp
 
 CMakeFiles/VibrationAnalyzerApp.dir/src/qcustomplot.cpp.i: cmake_force
@@ -149,7 +164,7 @@ CMakeFiles/VibrationAnalyzerApp.dir/src/qcustomplot.cpp.s: cmake_force
 CMakeFiles/VibrationAnalyzerApp.dir/VibrationAnalyzerApp_autogen/EWIEGA46WW/qrc_resources.cpp.o: CMakeFiles/VibrationAnalyzerApp.dir/flags.make
 CMakeFiles/VibrationAnalyzerApp.dir/VibrationAnalyzerApp_autogen/EWIEGA46WW/qrc_resources.cpp.o: VibrationAnalyzerApp_autogen/EWIEGA46WW/qrc_resources.cpp
 CMakeFiles/VibrationAnalyzerApp.dir/VibrationAnalyzerApp_autogen/EWIEGA46WW/qrc_resources.cpp.o: CMakeFiles/VibrationAnalyzerApp.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/thanh/Project/DATN/vibration-analyzer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/VibrationAnalyzerApp.dir/VibrationAnalyzerApp_autogen/EWIEGA46WW/qrc_resources.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/thanh/Project/DATN/vibration-analyzer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/VibrationAnalyzerApp.dir/VibrationAnalyzerApp_autogen/EWIEGA46WW/qrc_resources.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/VibrationAnalyzerApp.dir/VibrationAnalyzerApp_autogen/EWIEGA46WW/qrc_resources.cpp.o -MF CMakeFiles/VibrationAnalyzerApp.dir/VibrationAnalyzerApp_autogen/EWIEGA46WW/qrc_resources.cpp.o.d -o CMakeFiles/VibrationAnalyzerApp.dir/VibrationAnalyzerApp_autogen/EWIEGA46WW/qrc_resources.cpp.o -c /home/thanh/Project/DATN/vibration-analyzer/build/VibrationAnalyzerApp_autogen/EWIEGA46WW/qrc_resources.cpp
 
 CMakeFiles/VibrationAnalyzerApp.dir/VibrationAnalyzerApp_autogen/EWIEGA46WW/qrc_resources.cpp.i: cmake_force
@@ -166,6 +181,7 @@ VibrationAnalyzerApp_OBJECTS = \
 "CMakeFiles/VibrationAnalyzerApp.dir/src/main.cpp.o" \
 "CMakeFiles/VibrationAnalyzerApp.dir/src/MainWindow.cpp.o" \
 "CMakeFiles/VibrationAnalyzerApp.dir/src/Simulation.cpp.o" \
+"CMakeFiles/VibrationAnalyzerApp.dir/src/DAQWorker.cpp.o" \
 "CMakeFiles/VibrationAnalyzerApp.dir/src/qcustomplot.cpp.o" \
 "CMakeFiles/VibrationAnalyzerApp.dir/VibrationAnalyzerApp_autogen/EWIEGA46WW/qrc_resources.cpp.o"
 
@@ -176,6 +192,7 @@ VibrationAnalyzerApp: CMakeFiles/VibrationAnalyzerApp.dir/VibrationAnalyzerApp_a
 VibrationAnalyzerApp: CMakeFiles/VibrationAnalyzerApp.dir/src/main.cpp.o
 VibrationAnalyzerApp: CMakeFiles/VibrationAnalyzerApp.dir/src/MainWindow.cpp.o
 VibrationAnalyzerApp: CMakeFiles/VibrationAnalyzerApp.dir/src/Simulation.cpp.o
+VibrationAnalyzerApp: CMakeFiles/VibrationAnalyzerApp.dir/src/DAQWorker.cpp.o
 VibrationAnalyzerApp: CMakeFiles/VibrationAnalyzerApp.dir/src/qcustomplot.cpp.o
 VibrationAnalyzerApp: CMakeFiles/VibrationAnalyzerApp.dir/VibrationAnalyzerApp_autogen/EWIEGA46WW/qrc_resources.cpp.o
 VibrationAnalyzerApp: CMakeFiles/VibrationAnalyzerApp.dir/build.make
@@ -194,7 +211,7 @@ VibrationAnalyzerApp: /usr/lib/x86_64-linux-gnu/libQt6Core.so.6.2.4
 VibrationAnalyzerApp: /usr/lib/x86_64-linux-gnu/libGLX.so
 VibrationAnalyzerApp: /usr/lib/x86_64-linux-gnu/libOpenGL.so
 VibrationAnalyzerApp: CMakeFiles/VibrationAnalyzerApp.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/thanh/Project/DATN/vibration-analyzer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Linking CXX executable VibrationAnalyzerApp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/thanh/Project/DATN/vibration-analyzer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Linking CXX executable VibrationAnalyzerApp"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/VibrationAnalyzerApp.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

@@ -1,0 +1,31 @@
+/* Simple dark theme for widgets */
+QWidget {
+    background-color: #121212;
+    color: #e0e0e0;
+    selection-background-color: #3d7ea6;
+}
+QPushButton {
+    background-color: #1f1f1f;
+    border: 1px solid #2a2a2a;
+    padding: 6px;
+}
+QPushButton:hover {
+    background-color: #2a2a2a;
+}
+QLabel, QLineEdit, QComboBox, QSpinBox {
+    color: #e0e0e0;
+}
+QToolBar, QMenuBar {
+    background-color: #1a1a1a;
+}
+QStatusBar {
+    background-color: #141414;
+}
+QHeaderView::section {
+    background-color: #1b1b1b;
+    color: #e0e0e0;
+}
+/* QCustomPlot specific tweaks */
+QWidget#qcustomplot {
+    background-color: #0f0f0f;
+}

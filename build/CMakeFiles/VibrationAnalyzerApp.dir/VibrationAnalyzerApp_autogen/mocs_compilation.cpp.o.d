@@ -323,6 +323,8 @@ CMakeFiles/VibrationAnalyzerApp.dir/VibrationAnalyzerApp_autogen/mocs_compilatio
  /usr/include/x86_64-linux-gnu/qt6/QtCore/qbasictimer.h \
  /usr/include/x86_64-linux-gnu/qt6/QtCore/QVector \
  /usr/include/x86_64-linux-gnu/qt6/QtCore/qvector.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/QList \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/qlist.h \
  /home/thanh/Project/DATN/vibration-analyzer/build/VibrationAnalyzerApp_autogen/DIG64O274K/moc_qcustomplot.cpp \
  /home/thanh/Project/DATN/vibration-analyzer/build/VibrationAnalyzerApp_autogen/DIG64O274K/../../../inc/qcustomplot.h \
  /usr/include/x86_64-linux-gnu/qt6/QtCore/QObject \
@@ -359,8 +361,6 @@ CMakeFiles/VibrationAnalyzerApp.dir/VibrationAnalyzerApp_autogen/mocs_compilatio
  /usr/include/x86_64-linux-gnu/qt6/QtGui/qpointingdevice.h \
  /usr/include/x86_64-linux-gnu/qt6/QtGui/qinputdevice.h \
  /usr/include/x86_64-linux-gnu/qt6/QtGui/qscreen.h \
- /usr/include/x86_64-linux-gnu/qt6/QtCore/QList \
- /usr/include/x86_64-linux-gnu/qt6/QtCore/qlist.h \
  /usr/include/x86_64-linux-gnu/qt6/QtCore/QRect \
  /usr/include/x86_64-linux-gnu/qt6/QtCore/qrect.h \
  /usr/include/x86_64-linux-gnu/qt6/QtCore/QSize \
@@ -1070,4 +1070,7 @@ CMakeFiles/VibrationAnalyzerApp.dir/VibrationAnalyzerApp_autogen/mocs_compilatio
  /usr/include/x86_64-linux-gnu/qt6/QtPrintSupport/qtprintsupportversion.h \
  /usr/include/x86_64-linux-gnu/qt6/QtCore/QElapsedTimer \
  /usr/include/x86_64-linux-gnu/qt6/QtCore/QTimeZone \
- /usr/include/x86_64-linux-gnu/qt6/QtGui/QScreen
+ /usr/include/x86_64-linux-gnu/qt6/QtGui/QScreen \
+ /home/thanh/Project/DATN/vibration-analyzer/build/VibrationAnalyzerApp_autogen/UVLADIE3JM/moc_DAQWorker.cpp \
+ /home/thanh/Project/DATN/vibration-analyzer/build/VibrationAnalyzerApp_autogen/UVLADIE3JM/../../../src/DAQWorker.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/QThread

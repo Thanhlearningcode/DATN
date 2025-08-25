@@ -5,7 +5,11 @@
 	"CMAKE_CURRENT_SOURCE_DIR" : "/home/thanh/Project/DATN/vibration-analyzer",
 	"CMAKE_SOURCE_DIR" : "/home/thanh/Project/DATN/vibration-analyzer",
 	"INCLUDE_DIR" : "/home/thanh/Project/DATN/vibration-analyzer/build/VibrationAnalyzerApp_autogen/include",
-	"INPUTS" : [ "/home/thanh/Project/DATN/vibration-analyzer/main.qml" ],
+	"INPUTS" : 
+	[
+		"/home/thanh/Project/DATN/vibration-analyzer/main.qml",
+		"/home/thanh/Project/DATN/vibration-analyzer/src/styles/dark.qss"
+	],
 	"LOCK_FILE" : "/home/thanh/Project/DATN/vibration-analyzer/build/CMakeFiles/VibrationAnalyzerApp_autogen.dir/AutoRcc_resources_EWIEGA46WW_Lock.lock",
 	"MULTI_CONFIG" : false,
 	"OPTIONS" : [ "-name", "resources" ],
