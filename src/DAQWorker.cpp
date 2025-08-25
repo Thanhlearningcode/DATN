@@ -1,10 +1,7 @@
 #include "DAQWorker.h"
 #include <QDebug>
-<<<<<<< HEAD
-=======
 #include <QStringList>
 #include <cmath>
->>>>>>> 35c53d9 ([Project]-Add USB connect sensor)
 
 // If NIDAQ is not available at compile time, provide a stub that emits zeros
 #ifdef NIDAQ_AVAILABLE
@@ -93,8 +90,6 @@ done:
     }
 #endif
 }
-<<<<<<< HEAD
-=======
 
 QStringList DAQWorker::availableDevices() {
 #ifdef NIDAQ_AVAILABLE
@@ -106,4 +101,3 @@ QStringList DAQWorker::availableDevices() {
     return QStringList{"No Connect Dev"};
 #endif
 }
->>>>>>> 35c53d9 ([Project]-Add USB connect sensor)
