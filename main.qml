@@ -12,19 +12,54 @@ ApplicationWindow {
         spacing: 20
         anchors.centerIn: parent
 
+        // Device status and refresh
+        Row {
+            spacing: 10
+            Text {
+                id: deviceStatusLabel
+                text: "Device: Checking..."
+                color: "#007700"
+            }
+            Button {
+                text: "Refresh Device"
+                onClicked: appController.refreshDevice()
+            }
+        }
+
+        // Log controls
+        Row {
+            spacing: 10
+            Button {
+                text: "Log Single"
+                onClicked: appController.logSensorData()
+            }
+            Text {
+                id: logStatusLabel
+                text: "Status Log: <font color='red'>Disable</font>"
+                color: "#990000"
+            }
+        }
+
+        // Kết nối signal từ backend
+        Connections {
+            target: appController
+            function onDeviceStatusChanged(status) {
+                deviceStatusLabel.text = status
+            }
+            function onLogStatusChanged(status) {
+                logStatusLabel.text = status
+            }
+        }
+
         // COM port and plot options
         Row {
             spacing: 20
-            Text {
-                text: "COM:"
-            }
+            Text { text: "COM:" }
             ComboBox {
                 id: comPortCombo
                 model: ["ReCOM", "COM1", "COM2", "COM3"] // Add actual COM ports dynamically
             }
-            Text {
-                text: "Plot Top:"
-            }
+            Text { text: "Plot Top:" }
             ComboBox {
                 id: plotTopCombo
                 model: ["Ch1", "Ch2"]

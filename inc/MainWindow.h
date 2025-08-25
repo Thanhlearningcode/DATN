@@ -13,6 +13,7 @@ class DAQWorker;
 class MainWindow : public QMainWindow {
     Q_OBJECT
 public:
+    QLabel *statusLabel = nullptr;
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 
@@ -44,9 +45,8 @@ public:
 
 private slots:
     void onDaqSamples(const QVector<double> &times, const QVector<double> &values);
-private slots:
-    void updateSimulation();
     void updateSimulation2();
     void updateSimulation3();
     void updateSimulation4();
+    void logSensorData();
 };

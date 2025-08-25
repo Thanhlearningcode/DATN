@@ -24,7 +24,7 @@ QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_MainWindow_t {
     const uint offsetsAndSize[20];
-    char stringdata0[123];
+    char stringdata0[120];
 };
 #define QT_MOC_LITERAL(ofs, len) \
     uint(offsetof(qt_meta_stringdata_MainWindow_t, stringdata0) + ofs), len 
@@ -36,16 +36,16 @@ QT_MOC_LITERAL(24, 0), // ""
 QT_MOC_LITERAL(25, 13), // "QList<double>"
 QT_MOC_LITERAL(39, 5), // "times"
 QT_MOC_LITERAL(45, 6), // "values"
-QT_MOC_LITERAL(52, 16), // "updateSimulation"
-QT_MOC_LITERAL(69, 17), // "updateSimulation2"
-QT_MOC_LITERAL(87, 17), // "updateSimulation3"
-QT_MOC_LITERAL(105, 17) // "updateSimulation4"
+QT_MOC_LITERAL(52, 17), // "updateSimulation2"
+QT_MOC_LITERAL(70, 17), // "updateSimulation3"
+QT_MOC_LITERAL(88, 17), // "updateSimulation4"
+QT_MOC_LITERAL(106, 13) // "logSensorData"
 
     },
     "MainWindow\0onDaqSamples\0\0QList<double>\0"
-    "times\0values\0updateSimulation\0"
-    "updateSimulation2\0updateSimulation3\0"
-    "updateSimulation4"
+    "times\0values\0updateSimulation2\0"
+    "updateSimulation3\0updateSimulation4\0"
+    "logSensorData"
 };
 #undef QT_MOC_LITERAL
 
@@ -86,10 +86,10 @@ void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         (void)_t;
         switch (_id) {
         case 0: _t->onDaqSamples((*reinterpret_cast< std::add_pointer_t<QList<double>>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<QList<double>>>(_a[2]))); break;
-        case 1: _t->updateSimulation(); break;
-        case 2: _t->updateSimulation2(); break;
-        case 3: _t->updateSimulation3(); break;
-        case 4: _t->updateSimulation4(); break;
+        case 1: _t->updateSimulation2(); break;
+        case 2: _t->updateSimulation3(); break;
+        case 3: _t->updateSimulation4(); break;
+        case 4: _t->logSensorData(); break;
         default: ;
         }
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {

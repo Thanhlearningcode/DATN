@@ -190,6 +190,30 @@ VibrationAnalyzerApp_autogen/mocs_compilation.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/VibrationAnalyzerApp.dir/build.make CMakeFiles/VibrationAnalyzerApp.dir/VibrationAnalyzerApp_autogen/mocs_compilation.cpp.s
 .PHONY : VibrationAnalyzerApp_autogen/mocs_compilation.cpp.s
 
+src/AppController.o: src/AppController.cpp.o
+.PHONY : src/AppController.o
+
+# target to build an object file
+src/AppController.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/VibrationAnalyzerApp.dir/build.make CMakeFiles/VibrationAnalyzerApp.dir/src/AppController.cpp.o
+.PHONY : src/AppController.cpp.o
+
+src/AppController.i: src/AppController.cpp.i
+.PHONY : src/AppController.i
+
+# target to preprocess a source file
+src/AppController.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/VibrationAnalyzerApp.dir/build.make CMakeFiles/VibrationAnalyzerApp.dir/src/AppController.cpp.i
+.PHONY : src/AppController.cpp.i
+
+src/AppController.s: src/AppController.cpp.s
+.PHONY : src/AppController.s
+
+# target to generate assembly for a file
+src/AppController.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/VibrationAnalyzerApp.dir/build.make CMakeFiles/VibrationAnalyzerApp.dir/src/AppController.cpp.s
+.PHONY : src/AppController.cpp.s
+
 src/DAQWorker.o: src/DAQWorker.cpp.o
 .PHONY : src/DAQWorker.o
 
@@ -326,6 +350,9 @@ help:
 	@echo "... VibrationAnalyzerApp_autogen/mocs_compilation.o"
 	@echo "... VibrationAnalyzerApp_autogen/mocs_compilation.i"
 	@echo "... VibrationAnalyzerApp_autogen/mocs_compilation.s"
+	@echo "... src/AppController.o"
+	@echo "... src/AppController.i"
+	@echo "... src/AppController.s"
 	@echo "... src/DAQWorker.o"
 	@echo "... src/DAQWorker.i"
 	@echo "... src/DAQWorker.s"

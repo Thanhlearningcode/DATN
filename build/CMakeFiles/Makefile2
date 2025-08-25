@@ -82,12 +82,12 @@ clean: CMakeFiles/VibrationAnalyzerApp_autogen.dir/clean
 CMakeFiles/VibrationAnalyzerApp.dir/all: CMakeFiles/VibrationAnalyzerApp_autogen.dir/all
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/VibrationAnalyzerApp.dir/build.make CMakeFiles/VibrationAnalyzerApp.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/VibrationAnalyzerApp.dir/build.make CMakeFiles/VibrationAnalyzerApp.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/thanh/Project/DATN/vibration-analyzer/build/CMakeFiles --progress-num=1,2,3,4,5,6,7,8,9 "Built target VibrationAnalyzerApp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/thanh/Project/DATN/vibration-analyzer/build/CMakeFiles --progress-num=1,2,3,4,5,6,7,8,9,10 "Built target VibrationAnalyzerApp"
 .PHONY : CMakeFiles/VibrationAnalyzerApp.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/VibrationAnalyzerApp.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/thanh/Project/DATN/vibration-analyzer/build/CMakeFiles 10
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/thanh/Project/DATN/vibration-analyzer/build/CMakeFiles 11
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/VibrationAnalyzerApp.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/thanh/Project/DATN/vibration-analyzer/build/CMakeFiles 0
 .PHONY : CMakeFiles/VibrationAnalyzerApp.dir/rule
@@ -108,7 +108,7 @@ CMakeFiles/VibrationAnalyzerApp.dir/clean:
 CMakeFiles/VibrationAnalyzerApp_autogen.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/VibrationAnalyzerApp_autogen.dir/build.make CMakeFiles/VibrationAnalyzerApp_autogen.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/VibrationAnalyzerApp_autogen.dir/build.make CMakeFiles/VibrationAnalyzerApp_autogen.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/thanh/Project/DATN/vibration-analyzer/build/CMakeFiles --progress-num=10 "Built target VibrationAnalyzerApp_autogen"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/thanh/Project/DATN/vibration-analyzer/build/CMakeFiles --progress-num=11 "Built target VibrationAnalyzerApp_autogen"
 .PHONY : CMakeFiles/VibrationAnalyzerApp_autogen.dir/all
 
 # Build rule for subdir invocation for target.

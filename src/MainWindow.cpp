@@ -84,10 +84,13 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent) {
     logLayout->addWidget(logSingleBtn);
     logLayout->addWidget(logAutoBtn);
     logLayout->addWidget(stopBtn);
-    QLabel *statusLabel = new QLabel("Status Log: <font color='red'>Disable</font>");
+    statusLabel = new QLabel("Status Log: <font color='red'>Disable</font>");
     logLayout->addWidget(statusLabel);
     logGroup->setLayout(logLayout);
     leftLayout->addWidget(logGroup);
+
+    // Connect Log Single button to logging slot
+    connect(logSingleBtn, &QPushButton::clicked, this, &MainWindow::logSensorData);
 
     // Main layout
     QHBoxLayout *mainLayout = new QHBoxLayout(central);
@@ -181,34 +184,25 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent) {
 
     mainLayout->addLayout(rightLayout);
 
-    // Timers for plots
-    simTimer = new QTimer(this);
-    connect(simTimer, &QTimer::timeout, this, &MainWindow::updateSimulation);
-    simTimer->start(33);
-
-    simTimer2 = new QTimer(this);
-    connect(simTimer2, &QTimer::timeout, this, &MainWindow::updateSimulation2);
-    simTimer2->start(33);
-
-    simTimer3 = new QTimer(this);
-    connect(simTimer3, &QTimer::timeout, this, &MainWindow::updateSimulation3);
-    simTimer3->start(33);
-
-    simTimer4 = new QTimer(this);
-    connect(simTimer4, &QTimer::timeout, this, &MainWindow::updateSimulation4);
-    simTimer4->start(33);
-
-    QTimer *replotTimer = new QTimer(this);
-    replotTimer->setInterval(33);
-    connect(replotTimer, &QTimer::timeout, [this]() {
-        simPlot->graph(0)->setData(tData, yData);
-        simPlot->xAxis->setRange(0, duration);
-        simPlot->yAxis->rescale();
-        simPlot->replot();
-    });
-    replotTimer->start();
 }
-
+void MainWindow::logSensorData() {
+    QDir dir;
+    if (!dir.exists("log")) {
+        dir.mkdir("log");
+    }
+    QFile file("log/sensor_log.csv");
+    if (file.open(QIODevice::WriteOnly | QIODevice::Text)) {
+        QTextStream out(&file);
+        out << "Time,Value\n";
+        for (int i = 0; i < tData.size() && i < yData.size(); ++i) {
+            out << tData[i] << "," << yData[i] << "\n";
+        }
+        file.close();
+        if (statusLabel) statusLabel->setText("Status Log: <font color='green'>Log thành công</font>");
+    } else {
+        if (statusLabel) statusLabel->setText("Status Log: <font color='red'>Log lỗi</font>");
+    }
+}
 void MainWindow::updateDeviceStatus()
 {
     QStringList devs = DAQWorker::availableDevices();
@@ -227,6 +221,7 @@ void MainWindow::setupSimulationPlot(QCustomPlot*& plot, QVector<double>& t, QVe
     plot->addGraph();
     plot->xAxis->setLabel("Time [s]");
     plot->yAxis->setLabel("Amplitude");
+
     plot->graph(0)->setPen(QPen(color));
     // Performance: disable antialiasing and heavy drawing features for embedded devices
     plot->setNotAntialiasedElements(QCP::aeAll);
@@ -242,24 +237,6 @@ void MainWindow::setupSimulationPlot(QCustomPlot*& plot, QVector<double>& t, QVe
     idx = 0;
 }
 
-void MainWindow::updateSimulation() {
-    int batch = 100;
-    for (int i = 0; i < batch; ++i) {
-        double t = simIndex / fs;
-        double val = std::sin(2 * M_PI * f1 * t) + std::sin(2 * M_PI * f2 * t);
-        tData.append(t);
-        yData.append(val);
-        simIndex++;
-        if (t > duration) {
-            simTimer->stop();
-            break;
-        }
-    }
-    simPlot->graph(0)->setData(tData, yData);
-    simPlot->xAxis->setRange(0, duration);
-    simPlot->yAxis->rescale();
-    simPlot->replot();
-}
 
 void MainWindow::updateSimulation2() {
     int batch = 100;
@@ -330,6 +307,21 @@ void MainWindow::onDaqSamples(const QVector<double> &times, const QVector<double
         int removeCnt = tData.size() - maxSamples;
         tData.remove(0, removeCnt);
         yData.remove(0, removeCnt);
+    }
+
+    // Tự động ghi log mỗi lần nhận dữ liệu mới
+    QDir dir;
+    if (!dir.exists("log")) {
+        dir.mkdir("log");
+    }
+    QFile file("log/sensor_log.csv");
+    if (file.open(QIODevice::WriteOnly | QIODevice::Text)) {
+        QTextStream out(&file);
+        out << "Time,Value\n";
+        for (int i = 0; i < tData.size() && i < yData.size(); ++i) {
+            out << tData[i] << "," << yData[i] << "\n";
+        }
+        file.close();
     }
 }
 

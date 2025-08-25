@@ -36,18 +36,20 @@ else()
 endif()
 
 set(SOURCES
-    src/main.cpp
-    src/MainWindow.cpp
-    src/Simulation.cpp
+  src/main.cpp
+  src/MainWindow.cpp
+  src/Simulation.cpp
   src/DAQWorker.cpp
-    src/qcustomplot.cpp
-    resources.qrc
+  src/AppController.cpp
+  src/qcustomplot.cpp
+  resources.qrc
 )
 
 set(HEADERS
-    inc/MainWindow.h
-    inc/Simulation.h
-    inc/qcustomplot.h
+  inc/MainWindow.h
+  inc/Simulation.h
+  inc/qcustomplot.h
+  inc/AppController.h
 )
 
 add_executable(VibrationAnalyzerApp

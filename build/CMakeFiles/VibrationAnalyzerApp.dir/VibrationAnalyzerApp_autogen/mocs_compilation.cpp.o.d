@@ -1,7 +1,7 @@
 CMakeFiles/VibrationAnalyzerApp.dir/VibrationAnalyzerApp_autogen/mocs_compilation.cpp.o: \
  /home/thanh/Project/DATN/vibration-analyzer/build/VibrationAnalyzerApp_autogen/mocs_compilation.cpp \
  /usr/include/stdc-predef.h \
- /home/thanh/Project/DATN/vibration-analyzer/build/VibrationAnalyzerApp_autogen/DIG64O274K/moc_MainWindow.cpp \
+ /home/thanh/Project/DATN/vibration-analyzer/build/VibrationAnalyzerApp_autogen/DIG64O274K/moc_AppController.cpp \
  /usr/include/c++/11/memory /usr/include/c++/11/bits/stl_algobase.h \
  /usr/include/x86_64-linux-gnu/c++/11/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/11/bits/os_defines.h \
@@ -117,11 +117,11 @@ CMakeFiles/VibrationAnalyzerApp.dir/VibrationAnalyzerApp_autogen/mocs_compilatio
  /usr/include/c++/11/backward/auto_ptr.h \
  /usr/include/c++/11/pstl/glue_memory_defs.h \
  /usr/include/c++/11/pstl/execution_defs.h \
- /home/thanh/Project/DATN/vibration-analyzer/build/VibrationAnalyzerApp_autogen/DIG64O274K/../../../inc/MainWindow.h \
- /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QMainWindow \
- /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qmainwindow.h \
- /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qtwidgetsglobal.h \
- /usr/include/x86_64-linux-gnu/qt6/QtGui/qtguiglobal.h \
+ /home/thanh/Project/DATN/vibration-analyzer/build/VibrationAnalyzerApp_autogen/DIG64O274K/../../../inc/AppController.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/QObject \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/qobject.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/qobjectdefs.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/qnamespace.h \
  /usr/include/x86_64-linux-gnu/qt6/QtCore/qglobal.h \
  /usr/include/c++/11/cstddef /usr/include/c++/11/cstdint \
  /usr/include/assert.h /usr/include/x86_64-linux-gnu/qt6/QtCore/qconfig.h \
@@ -193,15 +193,8 @@ CMakeFiles/VibrationAnalyzerApp.dir/VibrationAnalyzerApp_autogen/mocs_compilatio
  /usr/include/c++/11/tr1/poly_laguerre.tcc \
  /usr/include/c++/11/tr1/riemann_zeta.tcc \
  /usr/include/x86_64-linux-gnu/qt6/QtCore/qversiontagging.h \
- /usr/include/x86_64-linux-gnu/qt6/QtGui/qtgui-config.h \
- /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qtwidgets-config.h \
- /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qwidget.h \
- /usr/include/x86_64-linux-gnu/qt6/QtGui/qwindowdefs.h \
- /usr/include/x86_64-linux-gnu/qt6/QtCore/qobjectdefs.h \
- /usr/include/x86_64-linux-gnu/qt6/QtCore/qnamespace.h \
  /usr/include/x86_64-linux-gnu/qt6/QtCore/qtmetamacros.h \
  /usr/include/x86_64-linux-gnu/qt6/QtCore/qobjectdefs_impl.h \
- /usr/include/x86_64-linux-gnu/qt6/QtCore/qobject.h \
  /usr/include/x86_64-linux-gnu/qt6/QtCore/qstring.h \
  /usr/include/x86_64-linux-gnu/qt6/QtCore/qchar.h \
  /usr/include/x86_64-linux-gnu/qt6/QtCore/qstringview.h \
@@ -281,6 +274,19 @@ CMakeFiles/VibrationAnalyzerApp.dir/VibrationAnalyzerApp_autogen/mocs_compilatio
  /usr/include/x86_64-linux-gnu/qt6/QtCore/qbindingstorage.h \
  /usr/include/c++/11/chrono /usr/include/c++/11/ratio \
  /usr/include/c++/11/ctime \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/QString \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/qstring.h \
+ /home/thanh/Project/DATN/vibration-analyzer/build/VibrationAnalyzerApp_autogen/DIG64O274K/moc_MainWindow.cpp \
+ /home/thanh/Project/DATN/vibration-analyzer/build/VibrationAnalyzerApp_autogen/DIG64O274K/../../../inc/MainWindow.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QMainWindow \
+ /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qmainwindow.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qtwidgetsglobal.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtGui/qtguiglobal.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtGui/qtgui-config.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qtwidgets-config.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qwidget.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtGui/qwindowdefs.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/qobject.h \
  /usr/include/x86_64-linux-gnu/qt6/QtCore/qmargins.h \
  /usr/include/x86_64-linux-gnu/qt6/QtGui/qpaintdevice.h \
  /usr/include/x86_64-linux-gnu/qt6/QtCore/qrect.h \
@@ -328,7 +334,6 @@ CMakeFiles/VibrationAnalyzerApp.dir/VibrationAnalyzerApp_autogen/mocs_compilatio
  /home/thanh/Project/DATN/vibration-analyzer/build/VibrationAnalyzerApp_autogen/DIG64O274K/moc_qcustomplot.cpp \
  /home/thanh/Project/DATN/vibration-analyzer/build/VibrationAnalyzerApp_autogen/DIG64O274K/../../../inc/qcustomplot.h \
  /usr/include/x86_64-linux-gnu/qt6/QtCore/QObject \
- /usr/include/x86_64-linux-gnu/qt6/QtCore/qobject.h \
  /usr/include/x86_64-linux-gnu/qt6/QtCore/QPointer \
  /usr/include/x86_64-linux-gnu/qt6/QtCore/qpointer.h \
  /usr/include/x86_64-linux-gnu/qt6/QtCore/QSharedPointer \
@@ -375,7 +380,6 @@ CMakeFiles/VibrationAnalyzerApp.dir/VibrationAnalyzerApp_autogen/mocs_compilatio
  /usr/include/x86_64-linux-gnu/qt6/QtGui/qpixmap.h \
  /usr/include/x86_64-linux-gnu/qt6/QtCore/QVector \
  /usr/include/x86_64-linux-gnu/qt6/QtCore/QString \
- /usr/include/x86_64-linux-gnu/qt6/QtCore/qstring.h \
  /usr/include/x86_64-linux-gnu/qt6/QtCore/QDateTime \
  /usr/include/x86_64-linux-gnu/qt6/QtCore/qdatetime.h \
  /usr/include/x86_64-linux-gnu/qt6/QtCore/qcalendar.h \
